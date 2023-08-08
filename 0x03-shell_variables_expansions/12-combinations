@@ -1,2 +1,2 @@
 #!/bin/bash
-echo {a..n}{a..z} {p..z}{a..z} | sort
+echo {a..n}{a..z} {p..z}{a..z} | sort | uniq -c
