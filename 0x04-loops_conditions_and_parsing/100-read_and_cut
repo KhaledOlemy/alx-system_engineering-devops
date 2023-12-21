@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# print content of /etc/passwd
+while IFS= read -r item
+do
+    echo "$item" | cut -d ':' -f1,3,6
+done < "/etc/passwd"
