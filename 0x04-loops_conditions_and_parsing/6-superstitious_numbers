@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Print 1..20, and printing bad luck numbers in
+# 4->"bad luck from China"
+# 9->"bad luck from Japan"
+# 17->"bad luck from Italy"
+var=1
+while [ $var -le 20 ]
+do
+    echo "$var"
+    case $var in
+    "4")
+        echo "bad luck from China";;
+    "8")
+        echo "bad luck from Japan";;
+    "17")
+        echo "bad luck from Italy";;
+    esac
+    var=$(( var + 1 ))
+done
