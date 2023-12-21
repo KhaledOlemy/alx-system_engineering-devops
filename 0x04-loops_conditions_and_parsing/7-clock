@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Print hours from 1..12 and minutes 1..59, total of 12h + 59m
+hour=0
+minute=1
+while [ $hour -le 12 ]
+do
+    echo "Hour: $hour"
+    while [ $minute -le 59 ]
+    do
+        echo "$minute"
+        minute=$(( minute + 1 ))
+    done
+    minute=1
+    hour=$(( hour + 1 ))
+done
