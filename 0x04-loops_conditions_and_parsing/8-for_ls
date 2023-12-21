@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Print ls file by file | without hidden files
+VARLIST=$(ls)
+for o in $VARLIST
+do
+    echo "$o"
+done
