@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# PRINT "Best School" 10 times using until
+var=10
+until [ $var -le 0 ]
+do
+    echo "Best School"
+    var=$((var - 1))
+done
