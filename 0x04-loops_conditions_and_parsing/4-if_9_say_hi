@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Print "Best School" except for 9th time, say "Hi"
+var=1
+while [ $var -lt 10 ]
+do
+    if [ $var -eq 9 ]
+    then
+        echo "Hi"
+    fi
+        echo "Best School"
+    var=$(( var + 1 ))
+done
