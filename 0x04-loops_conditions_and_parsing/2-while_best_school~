@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Print "Best School" 10 times
+VAR=1
+while [ $VAR -le 10 ]
+do
+    echo "Best School"
+    VAR=(($VAR + 1 ))
+done
