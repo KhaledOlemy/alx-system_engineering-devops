@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Parse Apacha logs, print each IP and status code,
+# along with number of occurences, and sorted by it.
+awk '{print $1 " " $9}' apache-access.log | sort | uniq -c | sort -r
