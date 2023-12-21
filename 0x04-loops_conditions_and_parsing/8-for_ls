@@ -3,5 +3,5 @@
 VARLIST=$(ls)
 for o in $VARLIST
 do
-    echo "$o"
+    echo "$o" | cut -d '-' -f2
 done
