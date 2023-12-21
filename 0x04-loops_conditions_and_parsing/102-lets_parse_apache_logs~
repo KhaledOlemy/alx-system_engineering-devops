@@ -1,2 +1,0 @@
-#!/usr/bin/env bash
-# Parse Apache logs, and display only IPs and HTTP status codes
