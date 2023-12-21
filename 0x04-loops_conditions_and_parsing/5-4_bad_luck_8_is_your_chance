@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Print "Best School" usually, except for 4th->"bad luck", and 8th->"good luck"
+var=1
+while [ $var -le 10 ]
+do
+    if [ $var -eq 4 ]
+    then
+        echo "bad luck"
+    elif [ $var -eq 8 ]
+    then
+        echo "good luck"
+    else
+        echo "Best School"
+    fi
+    var=$(( var + 1 ))
+done
