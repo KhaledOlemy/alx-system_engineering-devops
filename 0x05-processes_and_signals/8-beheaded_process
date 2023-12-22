@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# FORCIBLY KILL INVINCIBLE PROCESS
+pkill -f -SIGKILL 7-highlander
