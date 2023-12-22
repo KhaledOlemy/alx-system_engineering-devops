@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Display all process currently running on the machine
+# user-oriented, all processes, all users -> hierarchy
+ps -axu
