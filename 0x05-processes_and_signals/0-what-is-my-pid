@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Display the current processID of instances of this program
+echo $$
