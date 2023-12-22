@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# create file + display + i-hate + why + delete-if
+terminate_it() {
+    rm /var/run/myscript.pid
+    exit
+}
+
+echo "$$" > /var/run/myscript.pid
+while true
+do
+    echo "To infinity and beyond"
+    sleep 2
+    trap 'echo "Y U no love me?!"' SIGNIT
+    trap 'echo "I hate the kill command" && terminate_it' SIGTERM
+    trap 'terminate_it' SIGQUIT
+done
