@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Show only Bash IDs
+# shellcheck disable=SC2009
+ps -aux | grep bash
