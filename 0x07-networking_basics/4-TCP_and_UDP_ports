@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Displat listening ports, while showing only listening sockets
+# and PID, and name of programs that sockets belong to
+netstat -l --program
