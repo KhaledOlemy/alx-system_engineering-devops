@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# initiate a connection within the localhost to transfer messages
+# on the other terminal type: telnet localhost 98
+nc -l localhost 98
