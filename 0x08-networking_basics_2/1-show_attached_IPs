@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Show attached IP to this machine
+ifconfig | grep -Eo "inet .*. netmask" | cut -d " " -f2
