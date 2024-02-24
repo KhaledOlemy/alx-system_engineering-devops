@@ -11,6 +11,6 @@ file_line { 'Refuse password authentication':
 file_line { 'IdentityFile':
   ensure => present,
   path   => '/etc/ssh/ssh_config',
-  line   => 'IdentifyFile ~/.ssh/school',
+  line   => 'IdentityFile ~/.ssh/school',
   replace => true,
 }
