@@ -1,0 +1,2 @@
+# Connect to my server IP 3.83.245.203
+ssh -i ~/.ssh/school ubuntu@3.83.245.203
