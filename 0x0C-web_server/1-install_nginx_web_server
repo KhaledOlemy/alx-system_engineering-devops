@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# This script does the following:
+#   1. updates packages
+#   2. installs Nginx
+#   3. sets listening port on 80
+#   4. sets `Hello World!` as a default response
+apt-get -y update
+apt-get -y install nginx
+ufw allow 'Nginx HTTP'
+echo 'Hello World!' > /var/www/html/index.html
