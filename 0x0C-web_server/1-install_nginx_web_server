@@ -4,6 +4,7 @@
 #   2. installs Nginx
 #   3. sets listening port on 80
 #   4. sets `Hello World!` as a default response
+sudo su
 apt-get -y update
 apt-get -y install nginx
 ufw allow 'Nginx HTTP'
