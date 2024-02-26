@@ -4,9 +4,8 @@
 #   2. installs Nginx
 #   3. sets listening port on 80
 #   4. sets `Hello World!` as a default response
-sudo su
-apt-get -y update
-apt-get -y install nginx
-ufw allow 'Nginx HTTP'
-echo 'Hello World!' > /var/www/html/index.nginx-debian.html
-service start nginx
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+sudo echo 'Hello World!' > /var/www/html/index.nginx-debian.html
+sudo service nginx start
