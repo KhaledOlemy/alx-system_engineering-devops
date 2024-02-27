@@ -12,12 +12,11 @@ package { 'nginx':
 file_line { 'nginx_80_redirect':
   ensure => 'present',
   path   => '/etc/nginx/sites-available/default',
-  after  => 'listen 80 default_server;'
+  after  => 'server_name _;'
   line   => 'rewrite ^/redirect_me https://www.youtube.com/watch?v=VZrDxD0Za9I permanent;'}
 
 file { '/var/www/html/index.nginx-debian.html':
-  ensure  => 'present',
   content => 'Hello World!'}
 
-service { 'nginx-start':
+service { 'nginx':
   require => Package['nginx']}
