@@ -9,7 +9,7 @@
 sudo apt-get -y update
 sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
-sudo chmod -R 755 /var/www
+sudo chmod -R 777 /var/www
 echo 'Hello World!' > /var/www/html/index.nginx-debian.html
 new_server_config=\
 "server {
@@ -29,10 +29,11 @@ new_server_config=\
 	}
 }"
 
-sudo chmod -R 755 /etc/nginx/
+sudo chmod -R 777 /etc/nginx/
 bash -c "echo -e '$new_server_config' > /etc/nginx/sites-enabled/default"
 
-if [ "$(pgrep -c nginx)" -le 0 ]; then
+if [ "$(pgrep -c nginx)" -le 0 ];
+then
 	sudo service nginx start
 else
 	sudo service nginx restart
