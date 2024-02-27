@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Debug apache on docker
+
+echo "ServerName localhost" > /etc/apache2.conf
+service apache2 restart
