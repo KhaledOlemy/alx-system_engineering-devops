@@ -30,7 +30,7 @@ new_server_config=\
 "
 sudo bash -c "echo -e '$new_server_config' > /etc/nginx/sites-enabled/default"
 if [ "$(pgrep -c nginx)" -le 0 ]; then
-	service nginx start
+	sudo service nginx start
 else
-	service nginx restart
+	sudo service nginx restart
 fi
