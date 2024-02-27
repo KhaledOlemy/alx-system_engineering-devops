@@ -12,7 +12,7 @@ package { 'nginx':
 
 file_line { 'nginx_redirect':
   ensure => 'present',
-  path   => '/etc/nginx/sites-enabled/default',
+  path   => '/etc/nginx/sites-available/default',
   after  => 'listen 80 default_server;'
   line   => 'rewrite ^/redirect_me https://www.youtube.com/watch?v=VZrDxD0Za9I permanent;',
 }
