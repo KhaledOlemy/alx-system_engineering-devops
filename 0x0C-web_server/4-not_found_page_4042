@@ -10,8 +10,7 @@ sudo apt-get -y update
 sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
 sudo chmod -R 777 /var/www
-sudo echo 'Hello World!' > /var/www/html/index.nginx-debian.html
-sudo echo "Ceci n'est pas une page" > /var/www/html/404.html
+echo 'Hello World!' > /var/www/html/index.nginx-debian.html
 new_server_config=\
 "server {
 	listen 80 default_server;
@@ -28,7 +27,6 @@ new_server_config=\
 	{
 		rewrite ^ https://www.youtube.com/watch?v=VZrDxD0Za9I permanent;
 	}
-	error_page 404 /404.html;
 }"
 
 sudo chmod -R 777 /etc/nginx/
