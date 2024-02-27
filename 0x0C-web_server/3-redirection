@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+# This script does the following:
+#   1. updates packages
+#   2. installs Nginx
+#   3. sets listening port on 80
+#   4. sets `Hello World!` as a default response
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+sudo chown -R $USER:$USER /var/www
+sudo echo 'Hello World!' > /var/www/html/index.nginx-debian.html
+new_server_config=\
+"server {
+	listen 80;
+	listen [::]:80;
+
+	server_name example.com;
+
+	root /var/www/example.com;
+	index index.html;
+
+	location / {
+		try_files $uri $uri/ =404;
+	}
+	if (\$request_filename ~ redirect_me)
+	{
+		rewrite ^ https://youtu.be/VZrDxD0Za9I?si=8HVSXJvNokfY1a1b permanent;
+	}
+}
+"
+sudo bash -c "echo '$new_server_config' > /etc/nginx/sites-enabled/default"
+sudo service nginx start
+sudo service nginx restart
