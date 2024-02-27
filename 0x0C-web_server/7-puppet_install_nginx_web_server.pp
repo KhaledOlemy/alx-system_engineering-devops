@@ -7,21 +7,21 @@
 #   6. starts/restarts server after everything
 
 package { 'nginx':
-  ensure => 'installed'
+  ensure => installed,
 }
 
 file_line { 'nginx_redirect':
   ensure => 'present',
   path   => '/etc/nginx/sites-enabled/default',
-  after  => 'server_name _;'
-  line   => 'rewrite ^/redirect_me https://www.youtube.com/watch?v=VZrDxD0Za9I permanent;'
+  after  => 'listen 80 default_server;'
+  line   => 'rewrite ^/redirect_me https://www.youtube.com/watch?v=VZrDxD0Za9I permanent;',
 }
 
 file { '/var/www/html/index.nginx-debian.html':
-  content => 'Hello World!'
+  content => 'Hello World!',
 }
 
 service { 'nginx':
-  ensure  => 'running';
-  require => Package['nginx']
+  ensure  => running,
+  require => Package['nginx'],
 }
