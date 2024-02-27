@@ -10,7 +10,7 @@ sudo apt-get -y update
 sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
 sudo chown -R $USER:$USER /var/www
-sudo echo 'Hello World!' > /var/www/html/index.nginx-debian.html
+sudo echo 'Hello World!' > /var/www/html/index.html
 new_server_config=\
 "server {
 	listen 80 default_server;
