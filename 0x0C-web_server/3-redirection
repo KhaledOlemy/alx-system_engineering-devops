@@ -17,7 +17,7 @@ new_server_config=\
 	listen [::]:80 default_server;
 
 	root /var/www/html;
-	index index.html index.nginx-debian.html;
+	index index.html index.htm index.nginx-debian.html;
 	server_name _;
 
 	location / {
@@ -27,9 +27,10 @@ new_server_config=\
 	{
 		rewrite ^ https://www.youtube.com/watch?v=VZrDxD0Za9I permanent;
 	}
-}
-"
+}"
+
 sudo bash -c "echo -e '$new_server_config' > /etc/nginx/sites-enabled/default"
+
 if [ "$(pgrep -c nginx)" -le 0 ]; then
 	sudo service nginx start
 else
