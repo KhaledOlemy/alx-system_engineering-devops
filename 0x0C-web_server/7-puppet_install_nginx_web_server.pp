@@ -20,5 +20,4 @@ file { '/var/www/html/index.nginx-debian.html':
   content => 'Hello World!'}
 
 service { 'nginx-start':
-  ensure  => running,
   require => Package['nginx']}
