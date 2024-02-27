@@ -16,10 +16,9 @@ new_server_config=\
 	listen 80 default_server;
 	listen [::]:80 default_server;
 
-	server_name _;
-
 	root /var/www/html;
 	index index.html index.nginx-debian.html;
+	server_name _;
 
 	location / {
 		try_files \$uri \$uri/ =404;
