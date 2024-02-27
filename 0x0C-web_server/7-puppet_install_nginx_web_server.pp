@@ -16,7 +16,7 @@ file_line { 'nginx_80_redirect':
   line   => 'rewrite ^/redirect_me https://www.youtube.com/watch?v=VZrDxD0Za9I permanent;'}
 
 file { '/var/www/html/index.nginx-debian.html':
-  ensure  => present,
+  ensure  => 'present',
   content => 'Hello World!'}
 
 service { 'nginx-start':
