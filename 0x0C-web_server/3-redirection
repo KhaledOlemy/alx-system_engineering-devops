@@ -1,31 +1,38 @@
 #!/usr/bin/env bash
-# Installs, configures, and starts the server
-apt-get update
-apt-get -y install nginx
+# This script does the following:
+#   1. updates packages
+#   2. installs Nginx
+#   3. sets listening port on 80
+#   4. sets `Hello World!` as a default response
+#   5. adjusts redirect_me page to 301
+#   6. starts/restarts server after everything
+sudo apt-get -y update
+sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
-mkdir -p /var/www/html/
-sudo chmod -R 755 /var/www
-echo 'Hello World!' > /var/www/html/index.html
-SERVER_CONFIG=\
+sudo chown -R $USER:$USER /var/www
+sudo echo 'Hello World!' > /var/www/html/index.nginx-debian.html
+new_server_config=\
 "server {
 	listen 80 default_server;
 	listen [::]:80 default_server;
-	root /var/www/html;
-	index index.html index.htm index.nginx-debian.html;
+
 	server_name _;
+
+	root /var/www/html;
+	index index.html index.nginx-debian.html;
+
 	location / {
 		try_files \$uri \$uri/ =404;
 	}
-	if (\$request_filename ~ redirect_me){
-		rewrite ^ https://sketchfab.com/bluepeno/models permanent;
+	if (\$request_filename ~ redirect_me)
+	{
+		rewrite ^ https://www.youtube.com/watch?v=VZrDxD0Za9I permanent;
 	}
-}"
-
-bash -c "echo -e '$SERVER_CONFIG' > /etc/nginx/sites-enabled/default"
-
+}
+"
+sudo bash -c "echo -e '$new_server_config' > /etc/nginx/sites-enabled/default"
 if [ "$(pgrep -c nginx)" -le 0 ]; then
-	service nginx start
+	sudo service nginx start
 else
-	service nginx restart
+	sudo service nginx restart
 fi
-
