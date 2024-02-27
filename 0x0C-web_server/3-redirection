@@ -11,16 +11,16 @@ sudo chown -R $USER:$USER /var/www
 sudo echo 'Hello World!' > /var/www/html/index.nginx-debian.html
 new_server_config=\
 "server {
-	listen 80;
-	listen [::]:80;
+	listen 80 default_server;
+	listen [::]:80 default_server;
 
-	server_name example.com;
+	server_name _;
 
-	root /var/www/example.com;
-	index index.html;
+	root /var/www/html;
+	index index.html index.nginx-debian.html;
 
 	location / {
-		try_files $uri $uri/ =404;
+		try_files \$uri \$uri/ =404;
 	}
 	if (\$request_filename ~ redirect_me)
 	{
@@ -28,6 +28,6 @@ new_server_config=\
 	}
 }
 "
-sudo bash -c "echo '$new_server_config' > /etc/nginx/sites-enabled/default"
+sudo bash -c "echo -e '$new_server_config' > /etc/nginx/sites-enabled/default"
 sudo service nginx start
 sudo service nginx restart
