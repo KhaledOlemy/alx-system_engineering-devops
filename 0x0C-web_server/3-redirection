@@ -18,7 +18,7 @@ new_server_config=\
 
 	root /var/www/html;
 	index index.html index.htm index.nginx-debian.html;
-	server_name _;
+	server_name olemy.tech;
 
 	location / {
 		try_files \$uri \$uri/ =404;
