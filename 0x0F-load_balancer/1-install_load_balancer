@@ -7,5 +7,5 @@ sudo apt-get -y install haproxy=2.8.\*
 sudo chown "$USER":"$USER" /etc/default/haproxy
 echo "ENABLED=1" | sudo tee --append /etc/default/haproxy >/dev/null
 sudo chown "$USER":"$USER" /etc/haproxy/haproxy.cfg
-echo -e "\nfrontend haproxy_loadbalancer\n\tbind *:80\n\tmode http\n\toption http-keep-alive\n\tdefault_backend nginx_webservers\n\nbackend nginx_webservers\n\tbalance roundrobin\n\tserver 03-web-01 3.83.245.203:80 check\n\tserver 03-web-02 54.173.35.201:80 check\n" | sudo tee --append /etc/haproxy/haproxy.cfg >/dev/null
+echo -e "\nfrontend haproxy_loadbalancer\n\tbind *:80\n\tmode http\n\toption http-keep-alive\n\tdefault_backend nginx_webservers\n\nbackend nginx_webservers\n\tbalance roundrobin\n\tserver web-01 3.83.245.203:80 check\n\tserver web-02 54.173.35.201:80 check\n" | sudo tee --append /etc/haproxy/haproxy.cfg >/dev/null
 sudo service haproxy start
