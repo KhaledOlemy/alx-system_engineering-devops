@@ -17,13 +17,13 @@ file_line { 'nginx_redirect':
   line   => 'rewrite ^/redirect_me https://www.youtube.com/watch?v=VZrDxD0Za9I permanent;',
 }
 
-exec { 'add_header':
-        command  => 'sed -i "s/include \/etc\/nginx\/sites-enabled\/\*;/include \/etc\/nginx\/sites-enabled\/\*;\n\tadd_header X-Served-By \"$HOSTNAME\";/" /etc/nginx/nginx.conf',
-	provider => shell,
-}
-
 file { '/var/www/html/index.nginx-debian.html':
   content => 'Hello World!',
+}
+
+exec { 'add_header':
+  command  => 'sed -i "s/include \/etc\/nginx\/sites-enabled\/\*;/include \/etc\/nginx\/sites-enabled\/\*;\n\tadd_header X-Served-By \"$HOSTNAME\";/" /etc/nginx/nginx.conf',
+  provider => shell
 }
 
 service { 'nginx':
