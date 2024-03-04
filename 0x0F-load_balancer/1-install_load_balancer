@@ -12,7 +12,7 @@ echo "frontend http_front
 
 backend http_back
         balance roundrobin
-        server webserver1 34.73.190.173:80 check
-        server webserver2 18.208.189.15:80 check" >> /etc/haproxy/haproxy.cfg
+        server webserver1 54.173.35.201:80 check
+        server webserver2 34.232.69.227:80 check" >> /etc/haproxy/haproxy.cfg
 
 sudo service haproxy restart
