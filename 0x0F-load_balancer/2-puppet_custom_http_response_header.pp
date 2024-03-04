@@ -1,3 +1,4 @@
+#!/usr/bin/puppet
 # This script does the following:
 #   1. updates packages
 #   2. installs Nginx
