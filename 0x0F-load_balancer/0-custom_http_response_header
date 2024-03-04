@@ -34,7 +34,7 @@ new_server_config=\
 
 sudo chmod -R 777 /etc/nginx/
 bash -c "echo -e '$new_server_config' > /etc/nginx/sites-enabled/default"
-sed -i "s/include \/etc\/nginx\/sites-enabled\/\*;/include \/etc\/nginx\/sites-enabled\/\*;\n\tadd_header X-Served-By \"$HOSTNAME\";/" etc/nginx/nginx.conf
+sed -i "s/include \/etc\/nginx\/sites-enabled\/\*;/include \/etc\/nginx\/sites-enabled\/\*;\n\tadd_header X-Served-By \"$HOSTNAME\";/" /etc/nginx/nginx.conf
 if [ "$(pgrep -c nginx)" -le 0 ];
 then
 	sudo service nginx start
