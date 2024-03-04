@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# update, install HAProxy, configure it to handle requests to our web servers
 sudo apt-get -y update
 sudo apt-get -y install --no-install-recommends software-properties-common
 sudo add-apt-repository -y ppa:vbernat/haproxy-2.8
