@@ -19,8 +19,8 @@ file_line { 'nginx_redirect':
 
 file_line { 'nginx_header':
   ensure => 'present',
-  path   => '/etc/nginx/nginx.conf',
-  after  => 'include /etc/nginx/sites-enabled/*;',
+  path   => '/etc/nginx/sites-available/default',
+  after  => 'listen 80 default_server;',
   line   => 'add_header X-Served-By $HOSTNAME;',
 }
 
