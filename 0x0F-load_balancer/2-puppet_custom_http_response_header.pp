@@ -17,11 +17,9 @@ file_line { 'nginx_redirect':
   line   => 'rewrite ^/redirect_me https://www.youtube.com/watch?v=VZrDxD0Za9I permanent;',
 }
 
-file_line { 'nginx_header':
-  ensure => 'present',
-  path   => '/etc/nginx/nginx.conf',
-  after  => 'include /etc/nginx//sites-enabled/*;',
-  line   => 'add_header X-Served-By $HOSTNAME;',
+exec { 'add_header':
+        command  => 'sed -i "s/include \/etc\/nginx\/sites-enabled\/\*;/include \/etc\/nginx\/sites-enabled\/\*;\n\tadd_header X-Served-By \"$HOSTNAME\";/" /etc/nginx/nginx.conf',
+	provider => shell,
 }
 
 file { '/var/www/html/index.nginx-debian.html':
