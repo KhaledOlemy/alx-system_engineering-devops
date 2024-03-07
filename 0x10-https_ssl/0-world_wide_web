@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# FUNCTION YET DESC
+
+get_subdomain_data() {
+    output=$(dig "$2"."$1" | grep ";; ANSWER SECTION:" -A1 | tr '\t' ' ' | cut -d ":" -f2- | cut -d " " -f1- | awk '{print "The subdomain " $1 " is a " $4 " record and points to " $5}' | tr '\n' '|' | cut -d '|' -f2 | sed "s/.holberton.online.//")
+    echo "$output"
+}
+
+if [ "$#" == 1 ]
+then
+  get_subdomain_data "$1" "www"
+  get_subdomain_data "$1" "lb-01"
+  get_subdomain_data "$1" "web-01"
+  get_subdomain_data "$1" "web-02"
+elif [ "$#" == 2 ]
+then
+  get_subdomain_data "$1" "$2"
+fi
