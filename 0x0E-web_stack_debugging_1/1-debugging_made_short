@@ -2,5 +2,5 @@
 # debugging could be easily fixed by reapplying s-link
 ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 sudo service nginx restart
-kill "$(pgrep nginx | head -1)"
+kill "$(pgrep 'nginx' | head -1)"
 #pkill -f "nginx"
