@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-# debugging could be easily fixed by reapplying s-link
-# (that's originally present)
-ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-sudo service nginx restart
