@@ -1,0 +1,17 @@
+#!/usr/bin/python3
+# Configure SSL onHAproxy to handle encrypted graphics
+sudo add-apt-repository ppa:certbot/certbot
+sudo apt update && sudo apt upgrade
+sudo apt install certbot
+sudo service haproxy stop
+sudo certbot certonly --standalone --preferred-challenges http --http-01-port 80 -d olemy.tech -d www.olemy.tech --email testmail@gmail.com -q --agree-tos
+sudo mkdir -p /etc/haproxy/certs
+DOMAIN='olemy.tech'
+sudo -E bash -c 'cat /etc/letsencrypt/live/$DOMAIN/fullchain.pem /etc/letsencrypt/live/$DOMAIN/privkey.pem > /etc/haproxy/certs/$DOMAIN.pem'
+sudo chmod -R go-rwx /etc/haproxy/certs
+####
+
+
+
+####
+sudo service haproxy start
