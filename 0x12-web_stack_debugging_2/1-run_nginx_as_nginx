@@ -2,6 +2,6 @@
 # debug webserver
 sed -i "s/#user www-data/user nginx/" /etc/nginx/nginx.conf
 sed -i "s/listen 80/listen 8080/g" /etc/nginx/sites-available/default
-chmod 777 /etc/nginx/nginx.conf
+chmod 644 /etc/nginx/nginx.conf
 pkill apache2
 sudo -u nginx service nginx restart
