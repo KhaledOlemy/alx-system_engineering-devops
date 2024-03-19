@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+sudo mysql
+CREATE USER 'holberton_user'@'localhost' IDENTIFIED BY 'projectcorrection280hbtn';
+COMMIT;
+SELECT user FROM mysql.user;
+GRANT REPLICATION CLIENT ON *.* TO 'holberton_user'@'localhost';
+COMMIT;
+SHOW GRANTS FOR 'holberton_user'@'localhost';
