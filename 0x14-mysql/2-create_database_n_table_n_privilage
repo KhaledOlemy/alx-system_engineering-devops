@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+CREATE DATABASE IF NOT EXISTS tyrell_corp;
+USE tyrell_corp;
+CREATE TABLE IF NOT EXISTS nexus6(id int, name varchar(256));
+INSERT INTO nexus6 value (1, "Leon");
+SELECT * FROM nexus6;
+COMMIT;
+GRANT SELECT ON tyrell_corp.nexus6 TO 'holberton_user'@'localhost';
+COMMIT;
