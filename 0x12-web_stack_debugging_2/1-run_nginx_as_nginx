@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+sudo -H -u nginx "service nginx restart"
