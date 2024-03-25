@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 Get employee tasks details with employeeID and export to .json
-USAGE: 1-export_to_JSON.py employeeID
+USAGE: 2-export_to_JSON.py employeeID
 """
 import json
 import requests
