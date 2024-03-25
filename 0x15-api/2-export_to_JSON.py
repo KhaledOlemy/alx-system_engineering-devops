@@ -16,7 +16,7 @@ if __name__ == "__main__":
     for task in emp_req:
         tc = task['completed']
         tt = task['title']
-        task_item = {"task": tt, "completed":tc, "username": e_name}
+        task_item = {"task": tt, "completed": tc, "username": e_name}
         tasks.append(task_item)
         if tasks:
             tid = task['userId']
