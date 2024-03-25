@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+"""
+Get employee tasks details with employeeID
+USAGE: 0-gather_data_from_an_API.py employeeID
+"""
 import requests
 import sys
 
