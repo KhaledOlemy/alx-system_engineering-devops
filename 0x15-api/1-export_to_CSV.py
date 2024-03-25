@@ -3,9 +3,9 @@
 Get employee tasks details with employeeID and export to .csv
 USAGE: 1-export_to_CSV.py employeeID
 """
+import csv
 import requests
 import sys
-import csv
 
 if __name__ == "__main__":
     employee_id = eval(sys.argv[1])
