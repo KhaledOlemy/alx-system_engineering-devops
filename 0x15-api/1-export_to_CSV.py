@@ -5,7 +5,7 @@ USAGE: 1-export_to_CSV.py employeeID
 """
 import requests
 import sys
-import time
+import csv
 
 if __name__ == "__main__":
     employee_id = eval(sys.argv[1])
@@ -13,19 +13,10 @@ if __name__ == "__main__":
     emp_req = requests.get(f"{main_url}{employee_id}/todos").json()
     e_name = requests.get(f"{main_url}{employee_id}/").json().get('name')
     out_csv = ""
-    # for task in emp_req:
-    #     tid = task['userId']
-    #     cp = task['completed']
-    #     tt = task['title']
-    #     out_csv += f""""{tid}","{e_name}","{cp}","{tt}" """.strip()
-    #     out_csv += "\n"
-    #     l = line = '"' + str(task['userId']) + '","' + e_name + '","' + str(task['completed']) + '","' + task['title'] + '"'
-    # with open(f"{employee_id}.csv", "w") as csvfile:
-    #     csvfile.write(out_csv)
-    with open(f"{employee_id}.csv", "a") as csvfile:
+    with open(f"{employee_id}.csv", "w") as csvfile:
+        csv_writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
         for task in emp_req:
             tid = task['userId']
-            cp = task['completed']
+            tc = task['completed']
             tt = task['title']
-            l = '"' + str(task['userId']) + '","' + e_name + '","' + str(task['completed']) + '","' + task['title'] + '"\n'
-            csvfile.write(l)
+            csv_writer.writerow([tid, e_name, tc, tt])
