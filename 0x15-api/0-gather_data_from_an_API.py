@@ -14,7 +14,7 @@ if __name__ == "__main__":
     n_tasks = len(emp_req)
     tasks_done = [i for i in emp_req if i.get('completed')]
     nd_tasks = len(tasks_done)
-    e_statement = f"Employee {e_name} is done with tasks({nd_tasks}/{n_tasks}):"
-    print(e_statement)
+    e_status = f"Employee {e_name} is done with tasks({nd_tasks}/{n_tasks}):"
+    print(e_status)
     for task in tasks_done:
         print(f"\t {task.get('title')}")
