@@ -26,17 +26,3 @@ if __name__ == "__main__":
             out_dict[str(tid)] = tasks
     with open("todo_all_employees.json", "w") as jsonfile:
         json.dump(out_dict, jsonfile)
-    # emp_req = requests.get(f"{main_url}{employee_id}/todos").json()
-    # e_name = requests.get(f"{main_url}{employee_id}/").json().get('username')
-    # tasks = []
-    # for task in emp_req:
-        # tc = task['completed']
-        # tt = task['title']
-        # task_item = {"task": tt, "completed": tc, "username": e_name}
-        # tasks.append(task_item)
-        # if tasks:
-            # tid = task['userId']
-            # out_dict = {tid: tasks}
-    # with open(f"{employee_id}.json", "w") as jsonfile:
-        # json.dump(out_dict, jsonfile)
-# 
